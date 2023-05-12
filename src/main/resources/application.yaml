@@ -1,0 +1,16 @@
+vertx:
+  http:
+    server:
+      port: 3451
+  websocket:
+    server:
+      port: 1231
+    client:
+      host: 127.0.0.1
+      port: 1231
+  socket:
+    server:
+      port: 5088
+    client:
+      host: 127.0.0.1
+      port: 5088
