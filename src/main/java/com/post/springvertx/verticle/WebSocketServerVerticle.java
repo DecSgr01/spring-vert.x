@@ -4,6 +4,7 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.http.HttpServer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
+@ConditionalOnProperty(prefix = "vertx.websocket.server",name = "port")
 public class WebSocketServerVerticle extends AbstractVerticle {
     @Value("${vertx.websocket.server.port}")
     Integer port;

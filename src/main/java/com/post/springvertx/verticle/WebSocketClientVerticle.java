@@ -5,6 +5,7 @@ import io.vertx.core.http.HttpClient;
 import io.vertx.core.http.HttpClientOptions;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,10 +13,11 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
+@ConditionalOnProperty(prefix = "vertx.webSocket.client",name = {"port","host"})
 public class WebSocketClientVerticle extends AbstractVerticle {
-    @Value("${vertx.websocket.client.port}")
+    @Value("${vertx.webSocket.client.port}")
     Integer port;
-    @Value("${vertx.websocket.client.host}")
+    @Value("${vertx.webSocket.client.host}")
     String host;
 
     @Override

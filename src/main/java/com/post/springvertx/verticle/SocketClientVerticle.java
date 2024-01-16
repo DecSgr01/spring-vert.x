@@ -5,6 +5,7 @@ import io.vertx.core.net.NetClient;
 import io.vertx.core.net.NetClientOptions;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
+@ConditionalOnProperty(prefix = "vertx.socket.client",name = {"port","host"})
 public class SocketClientVerticle extends AbstractVerticle {
     @Value("${vertx.socket.client.port}")
     Integer port;

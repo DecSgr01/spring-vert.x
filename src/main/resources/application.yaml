@@ -1,7 +1,4 @@
 vertx:
-  http:
-    server:
-      port: 3451
   websocket:
     server:
       port: 1231
